@@ -3,7 +3,7 @@ import "./globals.css";
 import { SessionProvider } from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../pages/api/auth/[...nextauth]";
-import { Login } from "@/pages/Login";
+import { Login } from "@/components/Login";
 import { ClientProvider } from "@/components/ClientProvider";
 
 export const metadata = {
