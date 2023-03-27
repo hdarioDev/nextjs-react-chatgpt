@@ -1,5 +1,6 @@
 import Chat from "@/components/Chat";
 import { ChatInput } from "@/components/ChatInput";
+import { LoadingChat } from "@/components/LoadingChat";
 import React from "react";
 
 type Props = {

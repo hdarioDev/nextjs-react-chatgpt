@@ -4,6 +4,8 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
+import { LoadingChat } from "./LoadingChat";
+import { toast } from "react-hot-toast";
 
 type Props = {
   chatId: string;
@@ -45,6 +47,8 @@ export const ChatInput = ({ chatId }: Props) => {
     );
 
     //LOADING
+    const notification = toast.loading("ChatGPT is thinking...");
+
     await fetch("/api/askQuestion", {
       method: "POST",
       headers: {
@@ -57,7 +61,9 @@ export const ChatInput = ({ chatId }: Props) => {
         session,
       }),
     }).then(() => {
-      console.log("done");
+      toast.success("ChatGPT has responded!", {
+        id: notification,
+      });
     });
   };
 

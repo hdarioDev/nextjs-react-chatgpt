@@ -6,6 +6,10 @@ import NewChat from "./NewChat";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "@/firebase";
 import { ChatRow } from "./ChatRow";
+import {
+  ArrowLongUpIcon,
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/outline";
 
 export const SideBar = () => {
   const { data: session } = useSession();
@@ -32,14 +36,12 @@ export const SideBar = () => {
         </div>
       </div>
       {session && (
-        <div className="flex flex-col items-center justify-center">
-          <img
-            onClick={() => signOut()}
-            src={session.user?.image!}
-            alt="avatar"
-            className="rounded-full h-12 w-12 cursor-pointer hover:opacity-50"
-          />
-          <p className="text-white">{session.user?.name}</p>
+        <div
+          onClick={() => signOut()}
+          className={`chatRow justify-center m-1 `}
+        >
+          <ArrowRightOnRectangleIcon className="h-5 w-5 text-gray-400" />
+          <p className="flex-1 hidden md:inline-flex truncate  ">Log out</p>
         </div>
       )}
     </div>
