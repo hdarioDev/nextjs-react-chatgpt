@@ -32,7 +32,6 @@ export const ChatInput = ({ chatId }: Props) => {
         avatar: session?.user?.image! || "",
       },
     };
-    console.log("message ", message);
 
     await addDoc(
       collection(

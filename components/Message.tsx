@@ -7,8 +7,6 @@ type Props = {
 };
 
 const Message = ({ message }: Props) => {
-  console.log(message);
-
   const isChatGPT = message.user._id === "ChatGPT";
 
   return (

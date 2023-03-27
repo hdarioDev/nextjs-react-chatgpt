@@ -22,7 +22,6 @@ export const ChatRow = ({ id }: Props) => {
   );
 
   useEffect(() => {
-    console.log("pathName ", pathName);
     if (!pathName) return;
     setActive(pathName.includes(id));
   }, [pathName]);
